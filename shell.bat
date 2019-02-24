@@ -6,9 +6,11 @@ rem  To run this at startup, use this as your shortcut target:
 rem  %windir%\system32\cmd.exe /k c:\path\to\project\shell.bat
 rem
 
-rem Make sure this startup bat file exists
+rem Startup bat
+rem This batch file is called if it exists for additional setup if needed
+set startup="%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\startup.bat"
 pushd .
-call "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\startup.bat"
+if exist %startup% ( call %startup% )
 popd
 
 rem Activate conda env
